@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<script src="https://cdn.tailwindcss.com"></script>
+    <h1>Pagamentos</h1>
+{% endblock %}
+
+{% block content %}
+    <div class="flex justify-center gap-20 p-16">
+        <div class="bg-slate-800 w-2/6 text-center p-12 flex flex-col gap-12 rounded-lg">
+            <div>
+                <h2 class="text-2xl mb-1">Extrato</h2>
+                <div class="w-full h-1 bg-slate-900" ></div>
+            </div>
+
+            <div>
+                <ul class="flex flex-col gap-2">
+                    <li>
+                        <div class="flex justify-between mb-1">
+                            <p>lorem</p>
+                            <p class="text-red-500">Saída</p>
+                            <p>0,00 R$</p>
+                        </div>
+                        <div class="w-full h-px bg-slate-900"></div>
+                    </li>
+                    <li>
+                        <div class="flex justify-between mb-1">
+                            <p>lorem</p>
+                            <p class="text-green-500">Entrada</p>
+                            <p>0,00 R$</p>
+                        </div>
+                        <div class="w-full h-px bg-slate-900"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="w-1/2 flex flex-col gap-12">
+            <div class="bg-slate-800">
+                <ul class="flex p-4">
+                    <li>conta</li>
+                    <li>pix</li>
+                    <li>sei lá</li>
+                </ul>
+            </div>
+            <div class="bg-slate-800 flex flex-col items-center gap-12 p-8">
+                <div class="w-1/2 text-center">
+                    <h2 class="text-2xl">Favoritos</h2>
+                    <div class="w-full h-1 bg-slate-900" ></div>
+                </div>
+                <div class="w-full flex gap-16">
+                    <div class="w-1/2">
+                        <ul class="flex flex-col gap-2">
+                            <li class="flex flex-col">
+                                <div class="flex justify-between mb-1">
+                                    <p>lorem</p>
+                                    <button class="bg-red-600 rounded-full px-2 py-px">Remover</button>
+                                </div>
+                                <div class="w-full h-px bg-slate-900" ></div>
+                            </li>
+                            <li class="flex flex-col">
+                                <div class="flex justify-between mb-1">
+                                    <p>lorem</p>
+                                    <button class="bg-red-600 rounded-full px-2 py-px">Remover</button>
+                                </div>
+                                <div class="w-full h-px bg-slate-900" ></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="w-2/6 flex justify-end">
+                        <div><button class="bg-slate-900 px-2 py-px rounded-full">Adicionar</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
