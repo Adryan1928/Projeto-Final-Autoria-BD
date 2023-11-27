@@ -9,16 +9,20 @@
 </head>
 <body class="text-slate-50">
     <header class="bg-slate-800 flex justify-between items-center px-6 py-3">
-        <p class="text-2xl font-bold"><span class="text-teal-500">Rocket</span> Bank</p>
+        <p class="text-2xl font-bold"><span class="text-teal-500"><a href="/">Rocket</span> Bank</a></p>
+        <div class="text-2xl text-medium">
+            {% block header %}
+            {% endblock %}
+        </div>
         <div class=" flex gap-12">
             <button>Recursos ></button>
             <div class="flex gap-4">
-                <button class="bg-slate-50 text-slate-950 font-medium rounded py-1 px-3">Entrar</button>
+                <button class="bg-slate-50 text-slate-950 font-medium rounded py-1 px-3" ><a href="pagamentos/">Entrar</a></button>
                 <button class="bg-teal-500 text-slate-950 font-medium rounded py-1 px-3">Cadastrar-se</button>
             </div>
         </div>
     </header>
-    <main class="bg-slate-900">
+    <main class="bg-slate-900 h-screen">
         {% block content %}
         {% endblock %}
     </main>
