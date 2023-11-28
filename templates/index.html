@@ -1,22 +1,72 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div>
-        <h1><span>Rocket</span> Bank</h1>
-        <h2><span>Turbine</span> Seu Dinheiro</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae voluptate vero architecto quasi aperiam
-            soluta amet quis, unde explicabo tempora dolorum repellendus eos. Voluptates consequuntur hic molestiae, ut
-            repellendus aut?
-        </p>
-
-        <button>Junte-se a nós</button>
-
-    </div>
-
-    <div>
-        <div>
-            <!--Div rounded full-->
-            <!-- <img src="./assets/Foguete.svg" alt="Foguete verde"> -->
+    <main class="flex flex-col justify-around gap-20">
+        <div class="flex justify-around items-center py-20 w-full">
+            <div class="flex flex-col gap-16">
+                <div>
+                    <h1 class="text-7xl font-bold">
+                        <span class="text-teal-500">
+                        Rocket<br>
+                        </span>Bank
+                    </h1>
+                </div>
+                <div class="flex flex-col">
+                    <h2 class="text-2xl font-semibold"><span class="text-teal-500">Turbine</span> Seu Dinheiro</h2>
+                    <p class="w-96">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae voluptate vero architecto quasi aperiam
+                    soluta amet quis, unde explicabo tempora dolorum repellendus eos. Voluptates
+                    consequuntur hic molestiae, ut
+                    repellendus aut?
+                    </p>
+                </div>
+        
+                <button class="w-56 bg-teal-500 p-2.5 rounded text-slate-950 font-medium">
+                    Junte-se a nós
+                </button>
+            </div>
+            <div>
+                <div class="w-80 h-80 rounded-full bg-blue-950 blur-2xl absolute"></div>
+                <img src="/static/assets/Foguete.svg" alt="" class="relative inset-0">
+                
+            </div>
+                       
         </div>
-    </div>
+
+        <!--Segunda parte-->
+        <div class=" flex justify-around items-center bg-sky-950 w-screen h-screen">
+            <div>
+                <div class="w-80 h-80 bg-slate-900 flex items-center justify-center rounded-full blur-2xl absolute">
+                    <!--Rounded-full-->
+                </div>
+                <img src="/static/assets/Four Tech Podium 1.svg" alt="Pódio azul" class="w-96 h-96 relative origin-center">
+            </div>
+            <div class="flex flex-col gap-20">
+                <h2 class="font-bold text-5xl"><span class="text-teal-500">Section</span> Text</h2>
+                <p class="w-96">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos tempore debitis nisi doloribus accusantium exercitationem blanditiis ipsum, id laborum aliquid nobis quidem architecto, error non? Consectetur deleniti doloribus placeat corrupti.
+                </p>
+            </div>
+        </div>
+        
+        <!--Terceira parte-->
+        <div class="flex justify-around items-center w-screen h-screen">
+            <div class="flex flex-col gap-20">
+                <h2 class="font-bold text-5xl"><span class="text-teal-500">Section</span> Text</h2>
+                <p class="w-96">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, assumenda error? Dolorem ipsa quae labore eum veritatis in blanditiis illum accusamus nesciunt sed! A facilis ullam amet magnam harum repellat!</p>
+            </div>
+            <div class="relative w-80 h-80 overflow-visible">
+                <div class="absolute inset-0 bg-blue-950 rounded-full blur-2xl"></div>
+                <div class="absolute flex justify-center items-center h-full">
+                    <div class="flex flex-wrap">
+                        <img src="/static/assets/Chainlink 1.svg" alt="" class="w-36 h-36">
+                        <img src="/static/assets/Synthetix 1.svg" alt="" class="w-48 h-48">
+                    </div>
+                    <div class="flex flex-wrap">
+                        <img src="/static/assets/Ethereum 1.svg" alt="" class="w-44 h-44">
+                        <img src="/static/assets/Lisk.svg" alt="" class="w-58 h-58">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 {% endblock %}
