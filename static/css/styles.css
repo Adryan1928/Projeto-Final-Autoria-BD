@@ -1,0 +1,6 @@
+.title {
+    line-height: 103%;
+    letter-spacing: -0.03em; /* -3% in em units */
+    font-weight: bold;
+    font-size: 40px;
+}
