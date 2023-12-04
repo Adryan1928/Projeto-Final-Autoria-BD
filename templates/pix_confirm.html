@@ -3,9 +3,9 @@
 {%block content%}
 <main class="flex justify-around items-center p-2 py-20">
     <!--ícone-->
-    <div class="hidden md:block">
-        <div class="w-96 h-96 rounded-full bg-sky-950 blur-2xl absolute "></div>
-        <img src="/static/assets/pix asset.svg" alt="" class="relative inset-0">
+    <div class="hidden md:block relative">
+        <div class="h-2/3 w-2/3 rounded-full bg-sky-950 blur-2xl absolute translate-x-1/4 translate-y-1/4"></div>
+        <img src="{{ url_for('static', filename='/assets/pix asset.svg') }}" alt="" class="relative inset-0">
     </div>
     <!--Tela pix-->
     <div class="bg-slate-800 md:w-1/2 h-{838px} px-16 py-8 flex flex-col gap-28 rounded-lg text-slate-50">
