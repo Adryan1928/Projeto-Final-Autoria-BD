@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -10,10 +10,9 @@ def index():
 def pagementos():
     return render_template('pagamentos.html')
 
-@app.route('/pix')
+@app.route('/pix', methods=['GET', 'POST'])
 def pix():
-    return render_template('pix.html')
-
-@app.route('/pix2')
-def pix_password():
-    return render_template('pix2.html')
+    if request.args.get('step') == 'select' or not request.args.get('step'):
+        return render_template('pix.html')
+    elif request.args.get('step') == 'confirm':
+        return render_template('pix_confirm.html')
