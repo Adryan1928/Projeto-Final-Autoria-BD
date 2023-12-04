@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>Extrato</h1>
+{% endblock %}
+
+{% block content %}
+    <div class="flex justify-center items-center w-full h-full">
+        <div class="w-11/12 h-5/6 bg-slate-800 rounded-lg px-4 py-5 flex gap-12">
+            <div >
+                <div></div>
+                <div></div>
+            </div>
+            <div>
+                <h2 class="text-2xl">Filtros</h2>
+                <form>
+                    <div>
+                        <label>Data</label>
+                        <div class="flex">
+                            <div><input type="radio" id="recentes" value="re" class="hidden" name="Data"><label for="recentes" class="bg-slate-900 px-3 py-1 rounded-full" onclick="alertar()">Recentes</label></div>
+                        </div>
+                    </div>
+                    <div>
+                        <button class="py-1 px-2 w-full bg-teal-500 text-slate-950 rounded-full" type="reset">Limpar Filtros</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        function alertar(){
+            let a = document.getElementById('recentes').checked
+            alert(a)
+        }
+    </script>
+{% endblock %}

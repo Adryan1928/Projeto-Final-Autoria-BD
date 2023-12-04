@@ -9,3 +9,7 @@ def index():
 @app.route('/pagamentos/')
 def pagementos():
     return render_template('pagamentos.html')
+
+@app.route('/extrato/')
+def extrato():
+    return render_template('extrato.html')
