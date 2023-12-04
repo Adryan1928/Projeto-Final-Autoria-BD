@@ -9,3 +9,7 @@ def index():
 @app.route('/pagamentos/')
 def pagementos():
     return render_template('pagamentos.html')
+
+@app.route('/login/')
+def login():
+    return render_template('login.html')
