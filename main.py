@@ -20,3 +20,7 @@ def pix():
         return render_template('pix.html')
     elif request.args.get('step') == 'confirm':
         return render_template('pix_confirm.html')
+
+@app.route('/real-state-financing/')
+def real_state_financing():
+    return render_template('financing.html')
