@@ -20,7 +20,7 @@ cursor.execute('CREATE TABLE IF NOT EXISTS Pix ('
                 'id SERIAL PRIMARY KEY,'
                 'person_id INTEGER NOT NULL,'
                 'type VARCHAR(10) NOT NULL,'
-                'key VARCHAR(256) NOT NULL);')
+                'key VARCHAR(256) UNIQUE NOT NULL);')
 
 cursor.execute('CREATE TABLE IF NOT EXISTS Payment (id SERIAL PRIMARY KEY,'
                 'sender_id int NOT NULL,'

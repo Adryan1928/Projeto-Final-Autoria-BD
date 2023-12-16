@@ -52,20 +52,15 @@
                 <div class="w-full flex gap-16">
                     <div class="w-1/2">
                         <ul class="flex flex-col gap-2">
-                            <li class="flex flex-col">
-                                <div class="flex justify-between mb-1">
-                                    <p>lorem</p>
-                                    <button class="bg-red-600 rounded-full px-2 py-px">Remover</button>
-                                </div>
-                                <div class="w-full h-px bg-slate-900" ></div>
-                            </li>
-                            <li class="flex flex-col">
-                                <div class="flex justify-between mb-1">
-                                    <p>lorem</p>
-                                    <button class="bg-red-600 rounded-full px-2 py-px">Remover</button>
-                                </div>
-                                <div class="w-full h-px bg-slate-900" ></div>
-                            </li>
+                            {% for favorito in posts %}
+                                <li class="flex flex-col">
+                                    <div class="flex justify-between mb-1">
+                                        <p>{{favorito['name']}}</p>
+                                        <button class="bg-red-600 rounded-full px-2 py-px">Remover</button>
+                                    </div>
+                                    <div class="w-full h-px bg-slate-900" ></div>
+                                </li>
+                            {% endfor %}
                         </ul>
                     </div>
                     <div class="w-2/6 flex justify-end">
