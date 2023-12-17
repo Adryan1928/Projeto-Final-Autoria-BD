@@ -14,7 +14,8 @@ cursor.execute('CREATE TABLE IF NOT EXISTS Person (id SERIAL PRIMARY KEY,'
                 'email VARCHAR(256) UNIQUE NOT NULL,'
                 'CPF VARCHAR(11) UNIQUE NOT NULL,'
                 'birth_date DATE NOT NULL,'
-                'password VARCHAR(20) NOT NULL);')
+                'password VARCHAR(20) NOT NULL,'
+                'stored_value FLOAT NOT NULL);')
 
 cursor.execute('CREATE TABLE IF NOT EXISTS Pix ('
                 'id SERIAL PRIMARY KEY,'
