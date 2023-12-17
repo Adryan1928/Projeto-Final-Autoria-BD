@@ -1,7 +1,12 @@
+import os
 from flask import Flask, render_template, request, redirect, url_for
 import utils
+from controllers.users import auth
+
 
 app = Flask(__name__)
+app.register_blueprint(auth, url_prefix='/auth')
+app.secret_key = os.environ.get('SECRET_KEY')
 
 @app.route('/')
 def index():
@@ -25,10 +30,6 @@ def delete_favorite(id):
     favorito = utils.getFavorite(id)
     utils.deleteFavorites(id)
     return redirect(url_for('pagamentos', id=favorito['person_id']))
-
-@app.route('/login/')
-def login():
-    return render_template('login.html')
 
 @app.route('/pix', methods=['GET', 'POST'])
 def pix():

@@ -10,8 +10,8 @@ cursor = conn.cursor()
 
 cursor.execute('CREATE TABLE IF NOT EXISTS Person (id SERIAL PRIMARY KEY,'
                 'name VARCHAR(255) NOT NULL,'
-                'number int NOT NULL,'
-                'email VARCHAR(50) NOT NULL,'
+                'phone_number VARCHAR(15) NOT NULL,'
+                'email VARCHAR(256) UNIQUE NOT NULL,'
                 'CPF VARCHAR(11) UNIQUE NOT NULL,'
                 'birth_date DATE NOT NULL,'
                 'password VARCHAR(20) NOT NULL);')
