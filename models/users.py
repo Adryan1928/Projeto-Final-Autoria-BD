@@ -27,6 +27,13 @@ class User():
         user = cursor.fetchone()
         return user
     
+    @staticmethod
+    @transaction
+    def get_user_by_id(id, cursor):
+        cursor.execute('SELECT * FROM person WHERE id = {}'.format(id))
+        user = cursor.fetchone()
+        return user
+    
     @transaction
     def is_unique(self, cursor):
         cursor.execute('SELECT * FROM PERSON WHERE EMAIL = %s OR CPF = %s;', (self.email, self.cpf,))
@@ -38,3 +45,8 @@ class User():
         cursor.execute('INSERT INTO Person (name, phone_number, email, cpf, birth_date, password, stored_value) '
                        'VALUES (%s, %s, %s, %s, %s, %s, %s);',
                        (self.name, self.number, self.email, self.cpf, self.birth_date, self.password, 0))
+    
+    @staticmethod
+    @transaction
+    def deposito(id, value, cursor):
+          cursor.execute('UPDATE person SET stored_value = stored_value + ({})::float WHERE person.id={}'.format(value, id))
