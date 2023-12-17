@@ -1,51 +1,53 @@
 {% extends 'base.html' %}
 
 {% block header %}
-<h1>payments</h1>
+<h1>Pagamentos</h1>
 {% endblock %}
 
 {% block content %}
 <div class="flex justify-center gap-20 p-16">
     <div class="bg-slate-800 w-2/6 text-center p-12 flex flex-col gap-12 rounded-lg">
-                <h2 class="text-2xl">
-                    <span class="text-teal-500">Saldo:</span> R${{user['stored_value']}}
-                </h2>
-        <div>
+            <h2 class="text-2xl">
+                <span class="text-teal-500">Saldo:</span> R${{user['stored_value']}}
+            </h2>
+            <div>
                 <h2 class="text-2xl mb-1">Extrato</h2>
                 <div class="w-full h-1 bg-slate-900"></div>
             </div>
-        <div>
-            <ul class="flex flex-col gap-2">
+            <div>
+                <ul class="flex flex-col gap-2">
                     {% if posts %}
                         {% for saida in posts['Saidas'] %}
-                        <li>
-                            <div class="flex justify-between mb-1">
-                                <p>{{saida['name']}}</p>
-                                <p class="text-red-500">Saída</p>
-                                <p>{{saida['value']}} R$</p>
-                            </div>
-                            <div class="w-full h-px bg-slate-900"></div>
-                        </li>
+                            <li>
+                                <div class="flex justify-between mb-1">
+                                    <p>{{saida['name']}}</p>
+                                    <p class="text-red-500">Saída</p>
+                                    <p>{{saida['value']}} R$</p>
+                                </div>
+                                <div class="w-full h-px bg-slate-900"></div>
+                            </li>
                         {% endfor %}
                         {% for entrada in posts['Entradas'] %}
-                        <li>
-                            <div class="flex justify-between mb-1">
-                                <p>{{entrada['name']}}</p>
-                                <p class="text-green-500">Entrada</p>
-                                <p>{{entrada['value']}} R$</p>
-                            </div>
-                            <div class="w-full h-px bg-slate-900"></div>
-                        </li>
+                            <li>
+                                <div class="flex justify-between mb-1">
+                                    <p>{{entrada['name']}}</p>
+                                    <p class="text-green-500">Entrada</p>
+                                    <p>{{entrada['value']}} R$</p>
+                                </div>
+                                <div class="w-full h-px bg-slate-900"></div>
+                            </li>
                         {% endfor %}
                     {% else %}
                             <p>Nenhum pagamento foi realizado</p>
                     {% endif %}
-            </ul>
+                </ul>
         </div>
         <div>
-            <a href="{{ url_for('extrato', id=post) }}"><button class="bg-slate-900 px-3 py-px rounded-full hover:bg-slate-700">Visualizar em tela
-                    cheia</button></a>
+            <a href="{{ url_for('extrato', id=post) }}">
+                <button class="bg-slate-900 px-3 py-px rounded-full hover:bg-slate-700">Visualizar em tela cheia</button>
+            </a>
         </div>
+    </div>
         <div class="w-1/2 flex flex-col gap-12">
             <div class="bg-slate-800">
                 <ul class="flex p-4 gap-6 items-center">
@@ -57,6 +59,11 @@
                     </a></li>
               </ul>
             </div>
+            <div class="bg-slate-800 flex flex-col items-center gap-12 p-8">
+                <div class="w-1/2 text-center">
+                    <h2 class="text-2xl">Favoritos</h2>
+                    <div class="w-full h-1 bg-slate-900" ></div>
+                </div>
             <div class="w-full flex gap-8 px-2">
                 <div class="w-1/2">
                     <ul class="flex flex-col gap-2">

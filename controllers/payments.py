@@ -2,13 +2,16 @@ from flask import Blueprint, redirect, render_template, request, url_for
 
 import models.favorites as favorites
 
+from models.users import User
+
 payments = Blueprint('payments', __name__, static_folder='static', template_folder='templates')
 
 @payments.route('/<int:id>/', methods=['GET', 'POST'])
 def get_payments(id):
     if request.method == 'GET':
+        user = User.get_user_by_id(id)
         user_favorites = favorites.getFavorites(id=id)
-        return render_template('pagamentos.html', posts=user_favorites)
+        return render_template('pagamentos.html', posts=user_favorites, user = user, post = id)
     else:
         type = request.form.get('type') 
         name = request.form.get('name')
