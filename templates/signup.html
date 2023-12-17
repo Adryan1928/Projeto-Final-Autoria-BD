@@ -11,9 +11,9 @@
 
 <body>
     <div class="h-[100vh] w-[100vw] relative">
-        <img src="{{ url_for('static', filename='img/building.png') }}" alt="Building"
+        <img src="{{ url_for('static', filename='img/plane.png') }}" alt="Building"
             class="relative w-full md:w-2/5 h-64 md:h-full object-cover">
-        
+
         <div class="relative md:absolute md:w-2/3 right-0 z-10 top-0 h-full bg-slate-900 md:rounded-tl-[40px]
                     md:rounded-bl-[40px] flex flex-col box-border px-[5%] md:px-[15%] justify-center space-y-14 py-12">
             <div class="space-y-2">
@@ -24,9 +24,11 @@
             <form action="{{ url_for('auth.login') }}" method="POST" class="space-y-20">
                 <div class="flex flex-col space-y-6">
                     {% with messages = get_flashed_messages() %}
-                        {% if messages %}
-                        <div class="flex text-gray-200 p-4 border-red-500 border-2 bg-red-500 bg-opacity-10 rounded-2xl"><p>{{ messages[0] }}</p></div>
-                        {% endif %}
+                    {% if messages %}
+                    <div class="flex text-gray-200 p-4 border-red-500 border-2 bg-red-500 bg-opacity-10 rounded-2xl">
+                        <p>{{ messages[0] }}</p>
+                    </div>
+                    {% endif %}
                     {% endwith %}
 
                     <div class="flex flex-col space-y-2">
@@ -35,23 +37,45 @@
                             class="rounded py-2 px-4 bg-slate-800 text-slate-50">
                     </div>
 
+                    <div class="flex space-x-6">
+                        <div class="flex flex-col space-y-2 w-full">
+                            <label for="birth-date" class="text-gray-200 font-bold">Data de Nascimento: </label>
+                            <input id="birth-date" type="date" name="birth-date"
+                                class="rounded py-2 px-4 bg-slate-800 text-slate-50">
+                            <span class=""></span>
+                        </div>
+
+                        <div class="flex flex-col space-y-2 w-full">
+                            <label for="cpf" class="text-gray-200 font-bold">CPF: </label>
+                            <input id="cpf" type="text" name="cpf" placeholder="Digite aqui"
+                                class="rounded py-2 px-4 bg-slate-800 text-slate-50">
+                            <span class="text-xs text-red-500 hidden"></span>
+                        </div>
+                    </div>
+
                     <div class="flex flex-col space-y-2">
                         <label for="password" class="text-gray-200 font-bold">Senha: </label>
                         <input id="password" type="password" name="password" placeholder="Digite aqui"
+                            class="rounded py-2 px-4 bg-slate-800 text-slate-50">
+                    </div>
+
+                    <div class="flex flex-col space-y-2">
+                        <label for="password-confirm" class="text-gray-200 font-bold">Confirmação da senha: </label>
+                        <input id="password-confirm" type="password" name="password-confirm" placeholder="Digite aqui"
                             class="rounded py-2 px-4 bg-slate-800 text-slate-50">
                     </div>
                 </div>
 
                 <div class="flex flex-col space-y-3">
                     <button type="submit"
-                        class="bg-teal-500 text-slate-950 font-medium rounded py-2 px-4 w-full">Entrar</button>
+                        class="bg-teal-500 text-slate-950 font-medium rounded py-2 px-4 w-full">Cadastrar-se</button>
                     <p class="text-gray-200">
-                        Ainda não possui uma conta? <span class="font-bold"><a href="{{ url_for('auth.signup') }}">Faça seu cadastro</a></span>.
+                        Já possui uma conta? <span class="font-bold"><a href="{{ url_for('auth.login') }}">Faça login</a></span>.
                     </p>
                 </div>
             </form>
         </div>
     </div>
+    <script type="module" src="{{ url_for('static', filename='js/signup.js') }}"></script>
 </body>
-
 </html>
