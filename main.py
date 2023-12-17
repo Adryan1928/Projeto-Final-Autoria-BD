@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 import utils
 
 app = Flask(__name__)
@@ -9,8 +9,17 @@ def index():
 
 @app.route('/pagamentos/<int:id>/', methods=['GET', 'POST'])
 def pagamentos(id):
-    favorites = utils.getFavorites(id)
-    return render_template('pagamentos.html', posts=favorites)
+    if request.method == 'GET':
+        favorites = utils.getFavorites(id)
+        return render_template('pagamentos.html', posts=favorites)
+    else:
+        type = request.form.get('type') 
+        name = request.form.get('name')
+        key = request.form.get('key')
+
+        utils.setFavorites(name=name, key=key, type=type)
+        return redirect(url_for('pagamentos', id=1))
+    
 
 @app.route('/login/')
 def login():
