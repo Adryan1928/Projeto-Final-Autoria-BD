@@ -24,7 +24,7 @@ class User():
     @staticmethod
     @transaction
     def get_user_by_email(email, cursor):
-        cursor.execute('SELECT * FROM person WHERE email = %s;'.format(email,))
+        cursor.execute('SELECT * FROM person WHERE email = %s;', (email,))
         user = cursor.fetchone()
         return user
     
@@ -45,7 +45,7 @@ class User():
     def save(self, cursor):
         cursor.execute('INSERT INTO Person (name, phone_number, email, cpf, birth_date, password, stored_value) '
                        'VALUES (%s, %s, %s, %s, %s, %s, %s);',
-                       (self.name, self.phone_number, self.email, self.cpf, self.birth_date, self.password, 0))
+                       (self.name, self.phone_number, self.email, self.cpf, self.birth_date, self.password, 0,))
     
     @staticmethod
     @transaction
