@@ -34,7 +34,6 @@ def extrato(id):
         return render_template('extrato.html', post=id, posts=payments_filtrado)
     
     return render_template('extrato.html', post=id, posts=payments)
-main
 
 @app.route('/depositos/')
 def depositos():
