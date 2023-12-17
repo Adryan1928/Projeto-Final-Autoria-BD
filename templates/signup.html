@@ -38,8 +38,8 @@
                     </div>
 
                     <div class="flex flex-col space-y-2">
-                        <label for="number" class="text-gray-200 font-bold">Número: </label>
-                        <input id="number" type="text" name="number" placeholder="Digite aqui"
+                        <label for="phone_number" class="text-gray-200 font-bold">Número: </label>
+                        <input id="phone_number" type="text" name="phone_number" placeholder="Digite aqui"
                             class="rounded py-2 px-4 bg-slate-800 text-slate-50">
                     </div>
 
@@ -51,8 +51,8 @@
 
                     <div class="flex space-x-6">
                         <div class="flex flex-col space-y-2 w-full">
-                            <label for="birth-date" class="text-gray-200 font-bold">Data de Nascimento: </label>
-                            <input id="birth-date" type="date" name="birth-date"
+                            <label for="birth_date" class="text-gray-200 font-bold">Data de Nascimento: </label>
+                            <input id="birth_date" type="date" name="birth_date"
                                 class="rounded py-2 px-4 bg-slate-800 text-slate-50">
                             <span class=""></span>
                         </div>
@@ -82,7 +82,8 @@
                     <button type="submit"
                         class="bg-teal-500 text-slate-950 font-medium rounded py-2 px-4 w-full">Cadastrar-se</button>
                     <p class="text-gray-200">
-                        Já possui uma conta? <span class="font-bold"><a href="{{ url_for('auth.login') }}">Faça login</a></span>.
+                        Já possui uma conta? <span class="font-bold"><a href="{{ url_for('auth.login') }}">Faça
+                                login</a></span>.
                     </p>
                 </div>
             </form>
@@ -90,4 +91,5 @@
     </div>
     <script type="module" src="{{ url_for('static', filename='js/signup.js') }}"></script>
 </body>
+
 </html>

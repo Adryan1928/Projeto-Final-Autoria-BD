@@ -3,11 +3,12 @@ from .utils import transaction
 
 class User():
     def __init__(self, data):
+        self.id = data.get('id', None)
         self.name = data['name']
-        self.number = data['number']
+        self.phone_number = data['phone_number']
         self.email = data['email']
         self.cpf = data['cpf']
-        self.birth_date = data['birth-date']
+        self.birth_date = data['birth_date']
         self.password = data['password']
         
     @staticmethod
@@ -37,4 +38,4 @@ class User():
     def save(self, cursor):
         cursor.execute('INSERT INTO Person (name, phone_number, email, cpf, birth_date, password) '
                        'VALUES (%s, %s, %s, %s, %s, %s);',
-                       (self.name, self.number, self.email, self.cpf, self.birth_date, self.password))
+                       (self.name, self.phone_number, self.email, self.cpf, self.birth_date, self.password))
