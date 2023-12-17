@@ -57,6 +57,7 @@ form.addEventListener('submit', (event) => {
 
         
         if (visibleErrors.length === 0) {
+            document.getElementById('cpf').value = document.getElementById('cpf').value.replace(/\D/g, '');
             form.submit();
         }
     }, 0);

@@ -28,14 +28,14 @@ def login():
 def signup():
     if request.method == 'POST':
         data = request.form.to_dict()
-        
+                
         user = User(data)
-        
+                
         if not user.is_unique():
             flash('Email já cadastrado', category='error')
             return render_template('signup.html')
         else:
             user.save()
-            return redirect(url_for('login'))
+            return redirect(url_for('auth.login'))
     else:
         return render_template('signup.html')

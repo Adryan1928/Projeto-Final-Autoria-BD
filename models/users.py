@@ -7,7 +7,7 @@ class User():
         self.number = data['number']
         self.email = data['email']
         self.cpf = data['cpf']
-        self.birth_date = data['birth_date']
+        self.birth_date = data['birth-date']
         self.password = data['password']
         
     @staticmethod
@@ -35,6 +35,6 @@ class User():
         
     @transaction
     def save(self, cursor):
-        cursor.execute('INSERT INTO Person (name, number, email, cpf, birth_date, password) '
+        cursor.execute('INSERT INTO Person (name, phone_number, email, cpf, birth_date, password) '
                        'VALUES (%s, %s, %s, %s, %s, %s);',
                        (self.name, self.number, self.email, self.cpf, self.birth_date, self.password))
