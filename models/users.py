@@ -24,7 +24,7 @@ class User():
     @staticmethod
     @transaction
     def get_user_by_email(email, cursor):
-        cursor.execute('SELECT * FROM person WHERE email={};'.format(email))
+        cursor.execute('SELECT * FROM person WHERE email = %s;'.format(email,))
         user = cursor.fetchone()
         return user
     

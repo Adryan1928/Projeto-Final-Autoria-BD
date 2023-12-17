@@ -16,7 +16,7 @@ def login():
         
         if user:
             if password == user.password:
-                return redirect(url_for('payments.pagamentos', id=user.id))
+                return redirect(url_for('payments.show_payments', id=user.id))
             
         flash('Email ou senha incorretos.', category='error')
         return render_template('login.html')

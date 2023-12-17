@@ -16,7 +16,7 @@
 <body class="text-slate-50">
     <header class="bg-slate-800 flex justify-between items-center px-6 py-3">
         {% if post %}
-            <p class="text-2xl font-bold"><span class="text-teal-500"><a href="{{ url_for('pagamentos.pagamentos', id=post) }}">Rocket</span> Bank</a></p>
+            <p class="text-2xl font-bold"><span class="text-teal-500"><a href="{{ url_for('payments.show_payments', id=post) }}">Rocket</span> Bank</a></p>
         {% else %}
             <p class="text-2xl font-bold"><span class="text-teal-500"><a href="">Rocket</span> Bank</a></p>
         {% endif %}

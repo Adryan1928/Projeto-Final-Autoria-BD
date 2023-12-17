@@ -45,7 +45,7 @@ def depositos(id):
         if senha == user['password']:
             print('chega aqui?')
             User.deposito(id=id, value=valor)
-            return redirect(url_for('pagamentos.pagamentos', id=id))
+            return redirect(url_for('payments.show_payments', id=id))
     return render_template('depositos.html', post=id)
 
 @app.route('/pix/', methods=['GET', 'POST'])

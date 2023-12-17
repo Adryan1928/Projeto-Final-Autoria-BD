@@ -4,10 +4,10 @@ import models.favorites as favorites
 
 from models.users import User
 
-payments = Blueprint('pagamentos', __name__, static_folder='static', template_folder='templates')
+payments = Blueprint('payments', __name__, static_folder='static', template_folder='templates')
 
 @payments.route('/<int:id>/', methods=['GET', 'POST'])
-def pagamentos(id):
+def show_payments(id):
     if request.method == 'GET':
         user = User.get_user_by_id(id)
         user_favorites = favorites.getFavorites(id=id)
@@ -18,10 +18,10 @@ def pagamentos(id):
         key = request.form.get('key')
 
         favorites.add_favorite(key=key, user_id=id)
-        return redirect(url_for('payments.get_payments', id=1))
+        return redirect(url_for('payments.show_payments', id=id))
     
 @payments.route('/excluir_favorito/<int:id>/')
 def delete_favorite(id):
     user_favorites = favorites.getFavorite(id=id)
     favorites.deleteFavorites(id=id)
-    return redirect(url_for('payments.get_payments', id=user_favorites['person_id']))
+    return redirect(url_for('payments.show_payments', id=user_favorites['person_id']))
