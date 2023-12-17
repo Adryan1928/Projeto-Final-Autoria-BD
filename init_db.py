@@ -1,7 +1,7 @@
 import psycopg2
 conn = psycopg2.connect(database="rocket_bank",
                         user="postgres",
-                        password="root",
+                        password="1234567k",
                         host="localhost")
 
 cursor = conn.cursor()
@@ -10,8 +10,8 @@ cursor = conn.cursor()
 
 cursor.execute('CREATE TABLE IF NOT EXISTS Person (id SERIAL PRIMARY KEY,'
                 'name VARCHAR(255) NOT NULL,'
-                'number int NOT NULL,'
-                'email VARCHAR(50) NOT NULL,'
+                'phone_number VARCHAR(15) NOT NULL,'
+                'email VARCHAR(256) UNIQUE NOT NULL,'
                 'CPF VARCHAR(11) UNIQUE NOT NULL,'
                 'birth_date DATE NOT NULL,'
                 'password VARCHAR(20) NOT NULL);')
@@ -20,7 +20,7 @@ cursor.execute('CREATE TABLE IF NOT EXISTS Pix ('
                 'id SERIAL PRIMARY KEY,'
                 'person_id INTEGER NOT NULL,'
                 'type VARCHAR(10) NOT NULL,'
-                'key VARCHAR(256) NOT NULL);')
+                'key VARCHAR(256) UNIQUE NOT NULL);')
 
 cursor.execute('CREATE TABLE IF NOT EXISTS Payment (id SERIAL PRIMARY KEY,'
                 'sender_id int NOT NULL,'
