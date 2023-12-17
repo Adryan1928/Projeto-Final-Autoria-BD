@@ -11,11 +11,16 @@ app.secret_key = os.environ.get('SECRET_KEY')
 def index():
     return render_template('index.html')
 
-@app.route('/pagamentos/')
-def pagamentos():
-    return render_template('pagamentos.html')
+@app.route('/pagamentos/<int:id>/')
+def pagamentos(id):
 
-@app.route('/pix', methods=['GET', 'POST'])
+    return render_template('pagamentos.html', post = id)
+
+@app.route('/extrato/<int:id>/')
+def extrato(id):
+    return render_template('extrato.html')
+
+@app.route('/pix/', methods=['GET', 'POST'])
 def pix():
     if request.args.get('step') == 'select' or not request.args.get('step'):
         return render_template('pix.html')

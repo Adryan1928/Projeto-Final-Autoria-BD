@@ -13,8 +13,8 @@ def login():
         user = User.get_user_by_email(email=email)
         
         if user:
-            if password == user[-1]:
-                return redirect(url_for('pagamentos'))
+            if password == user['password']:
+                return redirect(url_for('pagamentos', id=user['id']))
             
         flash('Email ou senha incorretos.', category='error')
         return render_template('login.html')

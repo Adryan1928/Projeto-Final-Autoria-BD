@@ -1,5 +1,6 @@
 from functools import wraps
 import psycopg2
+import psycopg2.extras
 
 
 def transaction(function):
@@ -11,7 +12,7 @@ def transaction(function):
             password="root",
             host="localhost"
         )
-        cursor = conn.cursor()
+        cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
         
         try:
             result = function(cursor=cursor, *args, **kwargs)
