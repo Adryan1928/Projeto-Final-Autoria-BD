@@ -29,7 +29,7 @@ cursor.execute('CREATE TABLE IF NOT EXISTS Payment (id SERIAL PRIMARY KEY,'
                 'value float NOT NULL,'
                 'date DATE NOT NULL);')
 
-cursor.execute('CREATE TABLE IF NOT EXISTS Favorite (id SERIAL PRIMARY KEY,'
+cursor.execute('CREATE TABLE IF NOT EXISTS Favorite (favorite_id SERIAL PRIMARY KEY,'
                 'person_id int NOT NULL,'
                 'pix_id int NOT NULL);')
 

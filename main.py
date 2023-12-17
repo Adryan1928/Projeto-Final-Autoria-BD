@@ -1,12 +1,15 @@
 import os
 from flask import Flask, render_template, request, redirect, url_for
+
 from controllers.users import auth
+from controllers.payments import payments
 import utils
 from models.users import User
 
 
 app = Flask(__name__)
 app.register_blueprint(auth, url_prefix='/auth')
+app.register_blueprint(payments, url_prefix='/payments')
 app.secret_key = os.environ.get('SECRET_KEY')
 
 @app.route('/')

@@ -48,7 +48,7 @@ form.addEventListener('submit', (event) => {
     
     validateCPF('cpf');
     
-    validateAge('birth-date');
+    validateAge('birth_date');
 
     setTimeout(() => {
         let visibleErrors = Array.from(document.querySelectorAll('.error')).filter(err => {

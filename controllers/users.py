@@ -11,10 +11,11 @@ def login():
         password = request.form.get('password')
         
         user = User.get_user_by_email(email=email)
+        user = User(user)
         
         if user:
-            if password == user['password']:
-                return redirect(url_for('pagamentos', id=user['id']))
+            if password == user.password:
+                return redirect(url_for('payments.get_payments', id=user.id))
             
         flash('Email ou senha incorretos.', category='error')
         return render_template('login.html')
@@ -29,7 +30,7 @@ def signup():
         user = User(data)
                 
         if not user.is_unique():
-            flash('Email ou CPF já cadastrado.', category='error')
+            flash('Email ou CPF já cadastrados', category='error')
             return render_template('signup.html')
         else:
             user.save()

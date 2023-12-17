@@ -3,11 +3,12 @@ from .utils import transaction
 
 class User():
     def __init__(self, data):
+        self.id = data.get('id', None)
         self.name = data['name']
-        self.number = data['number']
+        self.phone_number = data['phone_number']
         self.email = data['email']
         self.cpf = data['cpf']
-        self.birth_date = data['birth-date']
+        self.birth_date = data['birth_date']
         self.password = data['password']
         
     @staticmethod

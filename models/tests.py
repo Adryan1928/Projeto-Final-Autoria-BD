@@ -1,13 +1,13 @@
 import datetime
 import unittest
-from utils import transaction
+from models.favorites import transaction
 from users import User
 
 class TestUser(unittest.TestCase):
     def setUp(self):
         self.user = User({
             'name': 'Test User',
-            'number': 123456789,
+            'phone_number': 123456789,
             'email': 'test@example.com',
             'cpf': '12345678902',
             'birth_date': datetime.date.today(),
@@ -22,7 +22,7 @@ class TestUser(unittest.TestCase):
         result = cursor.fetchone()
         
         self.assertEqual(result[1], self.user.name)
-        self.assertEqual(result[2], self.user.number)
+        self.assertEqual(result[2], self.user.phone_number)
         self.assertEqual(result[3], self.user.email)
         self.assertEqual(result[4], self.user.cpf)
         self.assertEqual(result[5], self.user.birth_date)
