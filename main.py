@@ -17,9 +17,14 @@ def pagamentos(id):
         name = request.form.get('name')
         key = request.form.get('key')
 
-        utils.setFavorites(name=name, key=key, type=type)
+        utils.setFavorites(key=key)
         return redirect(url_for('pagamentos', id=1))
     
+@app.route('/pagamentos/excluir_favorito/<int:id>/')
+def delete_favorite(id):
+    favorito = utils.getFavorite(id)
+    utils.deleteFavorites(id)
+    return redirect(url_for('pagamentos', id=favorito['person_id']))
 
 @app.route('/login/')
 def login():
