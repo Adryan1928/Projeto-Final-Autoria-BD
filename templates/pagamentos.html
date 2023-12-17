@@ -8,13 +8,12 @@
 <div class="flex justify-center gap-20 p-16">
     <div class="bg-slate-800 w-2/6 text-center p-12 flex flex-col gap-12 rounded-lg">
                 <h2 class="text-2xl">
-                    <span class="text-teal-500">Saldo:</span> R$30.000
+                    <span class="text-teal-500">Saldo:</span> R${{user['stored_value']}}
                 </h2>
         <div>
-            <h2 class="text-2xl mb-1">Extrato</h2>
-            <div class="w-full h-1 bg-slate-900"></div>
-        </div>
-
+                <h2 class="text-2xl mb-1">Extrato</h2>
+                <div class="w-full h-1 bg-slate-900"></div>
+            </div>
         <div>
             <ul class="flex flex-col gap-2">
                     {% if posts %}
@@ -47,17 +46,16 @@
             <a href="{{ url_for('extrato', id=post) }}"><button class="bg-slate-900 px-3 py-px rounded-full hover:bg-slate-700">Visualizar em tela
                     cheia</button></a>
         </div>
-    </div>
-    <div class="w-1/2 flex flex-col gap-12">
-        <div class="bg-slate-800  rounded-lg">
-            <ul class="flex p-4">
-                <li><div><img src="/static/assets/ic_baseline-pix.svg" alt="Pix"><p>Pix</p></div></li>
-            </ul>
-        </div>
-        <div class="bg-slate-800 flex flex-col items-center gap-4 py-8 pl-8 rounded-lg">
-            <div class="w-1/2 text-center">
-                <h2 class="text-2xl">Favoritos</h2>
-                <div class="w-full h-1 bg-slate-900"></div>
+        <div class="w-1/2 flex flex-col gap-12">
+            <div class="bg-slate-800">
+                <ul class="flex p-4 gap-6 items-center">
+                    <li><a href="">
+                        <div class="h-full flex flex-col justify-between"><img src="/static/assets/ic_baseline-pix.svg" alt="Pix"><p>Pix</p></div>
+                    </a></li>
+                    <li><a href="{{ url_for('depositos', id=post) }}">
+                        <div class="flex flex-col justify-between"><img class="h-6" src="/static/assets/vaadin_money-deposit.svg" alt="Pix"><p>Depósito</p></div>
+                    </a></li>
+              </ul>
             </div>
             <div class="w-full flex gap-8 px-2">
                 <div class="w-1/2">

@@ -4,6 +4,7 @@ from flask import Flask, render_template, request, redirect, url_for
 from controllers.users import auth
 from controllers.payments import payments
 import utils
+from models.users import User
 
 
 app = Flask(__name__)
@@ -18,7 +19,8 @@ def index():
 @app.route('/pagamentos/<int:id>/')
 def pagamentos(id):
     payments = utils.getPayments(id)
-    return render_template('pagamentos.html', post = id, posts = payments)
+    user = User.get_user_by_id(id)
+    return render_template('pagamentos.html', post = id, posts = payments, user = user)
 
 @app.route('/extrato/<int:id>/', methods=['GET', 'POST'])
 def extrato(id):
@@ -38,9 +40,18 @@ def extrato(id):
     
     return render_template('extrato.html', post=id, posts=payments)
 
-@app.route('/depositos/')
-def depositos():
-    return render_template('depositos.html')
+@app.route('/depositos/<int:id>/', methods=['GET', 'POST'])
+def depositos(id):
+    print(request.method)
+    if request.method == 'POST':
+        valor = request.form.get('valor')
+        senha = request.form.get('senha')
+        user = User.get_user_by_id(id)
+        if senha == user['password']:
+            print('chega aqui?')
+            User.deposito(id=id, value=valor)
+            return redirect(url_for('pagamentos', id=id))
+    return render_template('depositos.html', post=id)
 
 @app.route('/pix/', methods=['GET', 'POST'])
 def pix():
