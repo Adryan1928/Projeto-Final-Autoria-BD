@@ -38,6 +38,10 @@ def extrato(id):
     
     return render_template('extrato.html', post=id, posts=payments)
 
+@app.route('/depositos/')
+def depositos():
+    return render_template('depositos.html')
+
 @app.route('/pix/', methods=['GET', 'POST'])
 def pix():
     if request.args.get('step') == 'select' or not request.args.get('step'):
