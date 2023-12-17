@@ -6,17 +6,7 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/pagamentos/')
-def pagamentos():
-    return render_template('pagamentos.html')
 
-@app.route('/depositos/')
-def depositos():
-    return render_template('depositos.html')
-
-@app.route('/login/')
-def login():
-    return render_template('login.html')
 
 @app.route('/pix', methods=['GET', 'POST'])
 def pix():
