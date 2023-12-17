@@ -7,6 +7,9 @@
 {% block content %}
 <div class="flex justify-center gap-20 p-16">
     <div class="bg-slate-800 w-2/6 text-center p-12 flex flex-col gap-12 rounded-lg">
+                <h2 class="text-2xl">
+                    <span class="text-teal-500">Saldo:</span> R$30.000
+                </h2>
         <div>
             <h2 class="text-2xl mb-1">Extrato</h2>
             <div class="w-full h-1 bg-slate-900"></div>
@@ -14,26 +17,34 @@
 
         <div>
             <ul class="flex flex-col gap-2">
-                <li>
-                    <div class="flex justify-between mb-1">
-                        <p>lorem</p>
-                        <p class="text-red-500">Saída</p>
-                        <p>0,00 R$</p>
-                    </div>
-                    <div class="w-full h-px bg-slate-900"></div>
-                </li>
-                <li>
-                    <div class="flex justify-between mb-1">
-                        <p>lorem</p>
-                        <p class="text-green-500">Entrada</p>
-                        <p>0,00 R$</p>
-                    </div>
-                    <div class="w-full h-px bg-slate-900"></div>
-                </li>
+                    {% if posts %}
+                        {% for saida in posts['Saidas'] %}
+                        <li>
+                            <div class="flex justify-between mb-1">
+                                <p>{{saida['name']}}</p>
+                                <p class="text-red-500">Saída</p>
+                                <p>{{saida['value']}} R$</p>
+                            </div>
+                            <div class="w-full h-px bg-slate-900"></div>
+                        </li>
+                        {% endfor %}
+                        {% for entrada in posts['Entradas'] %}
+                        <li>
+                            <div class="flex justify-between mb-1">
+                                <p>{{entrada['name']}}</p>
+                                <p class="text-green-500">Entrada</p>
+                                <p>{{entrada['value']}} R$</p>
+                            </div>
+                            <div class="w-full h-px bg-slate-900"></div>
+                        </li>
+                        {% endfor %}
+                    {% else %}
+                            <p>Nenhum pagamento foi realizado</p>
+                    {% endif %}
             </ul>
         </div>
         <div>
-            <a href="/extrato/"><button class="bg-slate-900 px-3 py-px rounded-full">Visualizar em tela
+            <a href="{{ url_for('extrato', id=post) }}"><button class="bg-slate-900 px-3 py-px rounded-full hover:bg-slate-700">Visualizar em tela
                     cheia</button></a>
         </div>
     </div>
