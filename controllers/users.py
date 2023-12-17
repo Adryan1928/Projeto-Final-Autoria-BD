@@ -9,13 +9,14 @@ def login():
     if request.method == 'POST':
         email = request.form.get('email')
         password = request.form.get('password')
+
         
         user = User.get_user_by_email(email=email)
         user = User(user)
         
         if user:
             if password == user.password:
-                return redirect(url_for('payments.get_payments', id=user.id))
+                return redirect(url_for('payments.pagamentos', id=user.id))
             
         flash('Email ou senha incorretos.', category='error')
         return render_template('login.html')

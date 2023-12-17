@@ -84,7 +84,7 @@
                             id="adicionar" onclick="mostrar()">Adicionar</button></div>
                     <div id="modal" class="hidden w-full bg-slate-900 rounded-xl p-6">
                         <h2 class="text-center text-xl mb-4">Novo favorito</h2>
-                        <form action="{{ url_for('payments.get_payments', id=1) }}" method="post">
+                        <form action="{{ url_for('pagamentos.pagamentos', id=post) }}" method="post">
                             <div class="mb-2">
                                 <label for="Name">Nome</label>
                                 <input type="text" name="name" placeholder="Digite aqui"

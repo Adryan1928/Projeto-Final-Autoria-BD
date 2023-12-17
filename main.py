@@ -16,11 +16,6 @@ app.secret_key = os.environ.get('SECRET_KEY')
 def index():
     return render_template('index.html')
 
-@app.route('/pagamentos/<int:id>/')
-def pagamentos(id):
-    payments = utils.getPayments(id)
-    user = User.get_user_by_id(id)
-    return render_template('pagamentos.html', post = id, posts = payments, user = user)
 
 @app.route('/extrato/<int:id>/', methods=['GET', 'POST'])
 def extrato(id):
@@ -50,7 +45,7 @@ def depositos(id):
         if senha == user['password']:
             print('chega aqui?')
             User.deposito(id=id, value=valor)
-            return redirect(url_for('pagamentos', id=id))
+            return redirect(url_for('pagamentos.pagamentos', id=id))
     return render_template('depositos.html', post=id)
 
 @app.route('/pix/', methods=['GET', 'POST'])
