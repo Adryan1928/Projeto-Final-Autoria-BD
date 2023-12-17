@@ -17,22 +17,30 @@
 
             <div>
                 <ul class="flex flex-col gap-2">
-                    <li>
-                        <div class="flex justify-between mb-1">
-                            <p>lorem</p>
-                            <p class="text-red-500">Saída</p>
-                            <p>0,00 R$</p>
-                        </div>
-                        <div class="w-full h-px bg-slate-900"></div>
-                    </li>
-                    <li>
-                        <div class="flex justify-between mb-1">
-                            <p>lorem</p>
-                            <p class="text-green-500">Entrada</p>
-                            <p>0,00 R$</p>
-                        </div>
-                        <div class="w-full h-px bg-slate-900"></div>
-                    </li>
+                    {% if posts %}
+                        {% for saida in posts['Saidas'] %}
+                            <li>
+                                <div class="flex justify-between mb-1">
+                                    <p>{{saida['name']}}</p>
+                                    <p class="text-red-500">Saída</p>
+                                    <p>{{saida['value']}} R$</p>
+                                </div>
+                                <div class="w-full h-px bg-slate-900"></div>
+                            </li>
+                        {% endfor %}
+                        {% for entrada in posts['Entradas'] %}
+                            <li>
+                                <div class="flex justify-between mb-1">
+                                    <p>{{entrada['name']}}</p>
+                                    <p class="text-green-500">Entrada</p>
+                                    <p>{{entrada['value']}} R$</p>
+                                </div>
+                                <div class="w-full h-px bg-slate-900"></div>
+                            </li>
+                        {% endfor %}
+                    {% else %}
+                            <p>Nenhum pagamento foi realizado</p>
+                    {% endif %}
                 </ul>
             </div>
             <div>

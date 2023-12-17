@@ -29,7 +29,7 @@ def signup():
         user = User(data)
                 
         if not user.is_unique():
-            flash('Email já cadastrado', category='error')
+            flash('Email ou CPF já cadastrado.', category='error')
             return render_template('signup.html')
         else:
             user.save()

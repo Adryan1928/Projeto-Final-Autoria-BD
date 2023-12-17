@@ -1,6 +1,7 @@
 import os
 from flask import Flask, render_template, request
 from controllers.users import auth
+import utils
 
 
 app = Flask(__name__)
@@ -13,12 +14,13 @@ def index():
 
 @app.route('/pagamentos/<int:id>/')
 def pagamentos(id):
-
-    return render_template('pagamentos.html', post = id)
+    payments = utils.getPayments(id)
+    return render_template('pagamentos.html', post = id, posts = payments)
 
 @app.route('/extrato/<int:id>/')
 def extrato(id):
-    return render_template('extrato.html')
+    payments = utils.getPayments(id)
+    return render_template('extrato.html', posts=payments)
 
 @app.route('/pix/', methods=['GET', 'POST'])
 def pix():
