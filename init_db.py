@@ -1,7 +1,7 @@
 import psycopg2
 conn = psycopg2.connect(database="rocket_bank",
                         user="postgres",
-                        password="1234567k",
+                        password="root",
                         host="localhost")
 
 cursor = conn.cursor()

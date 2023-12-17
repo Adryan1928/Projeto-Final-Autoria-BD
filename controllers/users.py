@@ -4,7 +4,7 @@ from models.users import User
 
 auth = Blueprint('auth', __name__, static_folder='static', template_folder='templates')
 
-@auth.route('/login', methods=['GET', 'POST'])
+@auth.route('/login/', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         email = request.form.get('email')
@@ -13,18 +13,15 @@ def login():
         user = User.get_user_by_email(email=email)
         
         if user:
-            if password == user.password:
+            if password == user[-1]:
                 return redirect(url_for('pagamentos'))
-            else:
-                flash('Email ou senha incorretos', category='error')
-                return render_template('login.html')
-        else:
-            flash('Nenhum usuário encontrado para esse email', category='error')
-            return render_template('login.html')
+            
+        flash('Email ou senha incorretos.', category='error')
+        return render_template('login.html')
     
     return render_template('login.html')
 
-@auth.route('/signup', methods=['GET', 'POST'])
+@auth.route('/signup/', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
         data = request.form.to_dict()

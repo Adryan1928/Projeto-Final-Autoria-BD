@@ -12,7 +12,7 @@ def index():
     return render_template('index.html')
 
 @app.route('/pagamentos/')
-def pagementos():
+def pagamentos():
     return render_template('pagamentos.html')
 
 @app.route('/pix', methods=['GET', 'POST'])
