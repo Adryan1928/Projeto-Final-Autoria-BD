@@ -23,7 +23,7 @@ def getFavorites(*, cursor, id):
 @transaction
 def add_favorite(*, cursor, user_id, key):
     pix = get_pix_by_key(key=key)
-    pix_id = pix[0]['id']
+    pix_id = pix['id']
     cursor.execute('INSERT INTO favorite(person_id, pix_id) VALUES (({0})::integer, ({1})::integer) ;'.format(user_id, pix_id))
 
 @transaction
