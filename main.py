@@ -61,6 +61,11 @@ def pix(id):
 
         dados_dict = ast.literal_eval(dados)
 
+        senha = request.form.get('senha')
+        user = User.get_user_by_id(id=id)
+        if not senha == user['password']:
+            return render_template('pix_confirm.html', post=id, dados=dados_dict)
+
         pix = favorites.get_pix_by_key(key=dados_dict['chave'])
 
         utils.setPayment(id, pix['person_id'], dados_dict['valor'])
