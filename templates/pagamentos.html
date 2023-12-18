@@ -16,8 +16,8 @@
             </div>
             <div>
                 <ul class="flex flex-col gap-2">
-                    {% if posts %}
-                        {% for saida in posts['Saidas'] %}
+                    {% if payments %}
+                        {% for saida in payments['Saidas'] %}
                             <li>
                                 <div class="flex justify-between mb-1">
                                     <p>{{saida['name']}}</p>
@@ -27,7 +27,7 @@
                                 <div class="w-full h-px bg-slate-900"></div>
                             </li>
                         {% endfor %}
-                        {% for entrada in posts['Entradas'] %}
+                        {% for entrada in payments['Entradas'] %}
                             <li>
                                 <div class="flex justify-between mb-1">
                                     <p>{{entrada['name']}}</p>
@@ -49,7 +49,7 @@
         </div>
     </div>
         <div class="w-1/2 flex flex-col gap-12">
-            <div class="bg-slate-800">
+            <div class="bg-slate-800 rounded-lg">
                 <ul class="flex p-4 gap-6 items-center">
                     <li><a href="">
                         <div class="h-full flex flex-col justify-between"><img src="/static/assets/ic_baseline-pix.svg" alt="Pix"><p>Pix</p></div>
@@ -59,7 +59,7 @@
                     </a></li>
               </ul>
             </div>
-            <div class="bg-slate-800 flex flex-col items-center gap-12 p-8">
+            <div class="bg-slate-800 flex flex-col items-center gap-12 p-8 rounded-lg">
                 <div class="w-1/2 text-center">
                     <h2 class="text-2xl">Favoritos</h2>
                     <div class="w-full h-1 bg-slate-900" ></div>
@@ -67,7 +67,7 @@
             <div class="w-full flex gap-8 px-2">
                 <div class="w-1/2">
                     <ul class="flex flex-col gap-2">
-                        {% for favorito in posts %}
+                        {% for favorito in favorites %}
                         <li class="flex flex-col">
                             <div class="flex justify-between mb-1">
                                 <p>{{favorito['name']}}</p>

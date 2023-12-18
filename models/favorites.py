@@ -2,7 +2,7 @@ import psycopg2
 import psycopg2.extras
 conn = psycopg2.connect(database="rocket_bank",
                         user="postgres",
-                        password="1234567k",
+                        password="root",
                         host="localhost")
 
 from models.utils import transaction
