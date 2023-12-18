@@ -5,6 +5,9 @@ from controllers.users import auth
 from controllers.payments import payments
 import utils
 from models.users import User
+from models import favorites
+
+import ast
 
 
 app = Flask(__name__)
@@ -48,9 +51,29 @@ def depositos(id):
             return redirect(url_for('payments.show_payments', id=id))
     return render_template('depositos.html', post=id)
 
-@app.route('/pix/', methods=['GET', 'POST'])
-def pix():
+@app.route('/pix/<int:id>/', methods=['GET', 'POST'])
+def pix(id):
+    
     if request.args.get('step') == 'select' or not request.args.get('step'):
-        return render_template('pix.html')
-    elif request.args.get('step') == 'confirm':
-        return render_template('pix_confirm.html')
+        return render_template('pix.html', post=id)
+    elif request.args.get('step') == 'finalizar':
+        dados = request.args.get('dados')
+
+        dados_dict = ast.literal_eval(dados)
+
+        pix = favorites.get_pix_by_key(key=dados_dict['chave'])
+
+        utils.setPayment(id, pix['person_id'], dados_dict['valor'])
+
+        return redirect(url_for('payments.show_payments', id=id))
+    
+    chave = request.form.get('chave')
+    type = request.form.get('radio')
+    valor = request.form.get('valor')
+
+    pix = favorites.get_pix_by_key(key=chave)
+
+    if pix:
+        return render_template('pix_confirm.html', post=id, dados={'chave':chave,'type':type,'valor':valor})
+    else:
+        return render_template('pix.html', post=id)

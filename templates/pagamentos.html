@@ -51,7 +51,7 @@
         <div class="w-1/2 flex flex-col gap-12">
             <div class="bg-slate-800 rounded-lg">
                 <ul class="flex p-4 gap-6 items-center">
-                    <li><a href="">
+                    <li><a href="{{ url_for('pix', id=post) }}">
                         <div class="h-full flex flex-col justify-between"><img src="/static/assets/ic_baseline-pix.svg" alt="Pix"><p>Pix</p></div>
                     </a></li>
                     <li><a href="{{ url_for('depositos', id=post) }}">

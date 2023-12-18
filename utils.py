@@ -1,5 +1,5 @@
 from models.utils import transaction
-from datetime import datetime
+from datetime import date
 
 @transaction
 def getPayments(id, cursor):
@@ -14,7 +14,7 @@ def getPayments(id, cursor):
 
 #Tem que testar essa função
 @transaction
-def setPayment(cursor,receiver_id,sender_id,value):
-    cursor.execute('INSERT INTO payment(sender_id,receiver_id,value,date) VALUES({0},{1},{2},{3})'.format(sender_id,receiver_id,value,datetime.today()))
-    cursor.execute('UPDATE SET stored_value=stored_value + {} WHERE receiver_id=id'.format(value))
-    cursor.execute('UPDATE SET stored_value=stored_value - {} WHERE sender_id=id)'.format(value))
+def setPayment(sender_id, receiver_id, value, cursor):
+    cursor.execute('INSERT INTO payment(sender_id,receiver_id,value) VALUES({0},{1},{2});'.format(sender_id,receiver_id,value))
+    cursor.execute('UPDATE person SET stored_value=stored_value + {} WHERE id={};'.format(value, receiver_id))
+    cursor.execute('UPDATE person SET stored_value=stored_value - {} WHERE id={};'.format(value, sender_id))
