@@ -15,7 +15,7 @@ def getFavorite(*, cursor, id):
 
 @transaction
 def getFavorites(*, cursor, id):
-    cursor.execute('SELECT * FROM favorite INNER JOIN pix ON pix.id = favorite.pix_id INNER JOIN person ON favorite.person_id = person.id WHERE favorite.person_id = {};'.format(id))
+    cursor.execute('SELECT * FROM favorite INNER JOIN pix ON pix.id = favorite.pix_id INNER JOIN person ON pix.person_id = person.id WHERE favorite.person_id = {};'.format(id))
     favorites = cursor.fetchall()
     return favorites
 
