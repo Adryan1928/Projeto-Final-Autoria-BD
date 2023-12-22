@@ -11,6 +11,8 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    {% block extrahead %}
+    {% endblock %}
 </head>
 
 <body class="text-slate-50">
@@ -28,7 +30,7 @@
             {% if post %}
                 <h3 class="text-xl">Bem vindo</h3>
             {% else %}
-                <button>Recursos ></button>
+                <a href="{{ url_for('real_state_financing') }}"><button>Recursos ></button></a>
                 <div class="flex gap-4">
                     <a href="{{ url_for('auth.login') }}"><button class="bg-slate-50 text-slate-950 font-medium rounded py-1 px-3" >Entrar</button></a>
                     <a href="{{ url_for('auth.signup') }}"><button class="bg-teal-500 text-slate-950 font-medium rounded py-1 px-3">Cadastrar-se</button></a>
