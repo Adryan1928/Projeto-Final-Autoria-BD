@@ -6,7 +6,7 @@
 
 {% block content %}
     <div class="flex justify-center items-center w-full h-full py-12">
-        <div class="w-11/12 h-5/6 bg-slate-800 rounded-lg px-4 py-5 flex gap-12">
+        <div class="w-11/12 h-5/6 bg-slate-800 rounded-lg px-4 py-5 flex flex-col md:flex-row gap-12">
             <div class="w-full flex flex-col gap-4 h-screen">
                 <div class="flex bg-slate-900 rounded-full py-1 px-2 gap-6">
                     <img src="/static/assets/Vector.svg" class="relative inset-0" alt="Pesquisar">
@@ -14,8 +14,8 @@
                         <input class="w-full bg-slate-900" placeholder="Pesquise por datas, nomes, valores..." name="filtro" type="text">
                     </form>
                 </div>
-                <div class="bg-slate-900 px-24 py-2 rounded-lg h-full scroll-css">
-                    <ul>
+                <div class="bg-slate-900 px-16 md:px-12 lg:px-16 py-2 rounded-lg h-full scroll-css">
+                    <ul class="flex flex-col gap-2">
                         {% if posts %}
                             {% for saida in posts['Saidas'] %}
                                 <li>
