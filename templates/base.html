@@ -25,11 +25,15 @@
             {% endblock %}
         </div>
         <div class=" flex gap-12">
-            <button>Recursos ></button>
-            <div class="flex gap-4">
-                <a href="{{ url_for('auth.login') }}"><button class="bg-slate-50 text-slate-950 font-medium rounded py-1 px-3" >Entrar</button></a>
-                <a href="{{ url_for('auth.signup') }}"><button class="bg-teal-500 text-slate-950 font-medium rounded py-1 px-3">Cadastrar-se</button></a>
-            </div>
+            {% if post %}
+                <h3 class="text-xl">Bem vindo</h3>
+            {% else %}
+                <button>Recursos ></button>
+                <div class="flex gap-4">
+                    <a href="{{ url_for('auth.login') }}"><button class="bg-slate-50 text-slate-950 font-medium rounded py-1 px-3" >Entrar</button></a>
+                    <a href="{{ url_for('auth.signup') }}"><button class="bg-teal-500 text-slate-950 font-medium rounded py-1 px-3">Cadastrar-se</button></a>
+                </div>
+            {% endif %}
         </div>
     </header>
     <main class="bg-slate-900">
