@@ -82,3 +82,7 @@ def pix(id):
         return render_template('pix_confirm.html', post=id, dados={'chave':chave,'type':type,'valor':valor})
     else:
         return render_template('pix.html', post=id)
+
+@app.route('/real-state-financing/')
+def real_state_financing():
+    return render_template('financing.html')
