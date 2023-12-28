@@ -20,7 +20,7 @@
         {% if post %}
             <p class="text-2xl font-bold"><span class="text-teal-500"><a href="{{ url_for('payments.show_payments', id=post) }}">Rocket</span> Bank</a></p>
         {% else %}
-            <p class="text-2xl font-bold"><span class="text-teal-500"><a href="">Rocket</span> Bank</a></p>
+            <p class="text-2xl font-bold"><span class="text-teal-500"><a href="{{ url_for('index') }}">Rocket</span> Bank</a></p>
         {% endif %}
         <div class="text-2xl text-medium">
             {% block header %}
@@ -30,19 +30,19 @@
             {% if post %}
                 <h3 class="text-xl">Bem vindo</h3>
             {% else %}
-                <a href="{{ url_for('real_state_financing') }}"><button>Recursos ></button></a>
-                <div class="flex gap-4">
+                <div class="hidden md:flex gap-4 items-center">
+                    <button><a href="{{ url_for('real_state_financing') }}">Financiamento imobiliário</a></button>
                     <a href="{{ url_for('auth.login') }}"><button class="bg-slate-50 text-slate-950 font-medium rounded py-1 px-3" >Entrar</button></a>
                     <a href="{{ url_for('auth.signup') }}"><button class="bg-teal-500 text-slate-950 font-medium rounded py-1 px-3">Cadastrar-se</button></a>
                 </div>
-            {% endif %}
+                {% endif %}
         </div>
     </header>
     <main class="bg-slate-900">
         {% block content %}
         {% endblock %}
     </main>
-    <footer class="flex justify-around items-center bg-sky-950 py-10">
+    <footer class="flex flex-col md:flex-row justify-around items-center bg-sky-950 py-10">
         <div class="flex flex-col gap-8">
             <h3 class="font-bold">Para você</h3>
             <ul class="flex flex-col gap-4">

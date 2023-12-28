@@ -1,72 +1,84 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <main class="flex flex-col justify-around gap-20">
-        <div class="flex justify-around items-center py-20 w-full">
-            <div class="flex flex-col gap-16">
-                <div>
-                    <h1 class="text-7xl font-bold">
-                        <span class="text-teal-500">
-                        Rocket<br>
-                        </span>Bank
-                    </h1>
-                </div>
-                <div class="flex flex-col">
-                    <h2 class="text-2xl font-semibold"><span class="text-teal-500">Turbine</span> Seu Dinheiro</h2>
-                    <p class="w-96">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae voluptate vero architecto quasi aperiam
-                    soluta amet quis, unde explicabo tempora dolorum repellendus eos. Voluptates
-                    consequuntur hic molestiae, ut
-                    repellendus aut?
-                    </p>
-                </div>
-        
-                <button class="w-56 bg-teal-500 p-2.5 rounded text-slate-950 font-medium">
-                    Junte-se a nós
-                </button>
-            </div>
-            <div class="hidden md:block">
-                <div class="w-80 h-80 rounded-full bg-blue-950 blur-2xl absolute"></div>
-                <img src="/static/assets/Foguete.svg" alt="Foquete" class="relative inset-0">
-                
-            </div>
-                       
-        </div>
+<main class="flex flex-col justify-around gap-20 w-full">
+    <section class="flex container w-full m-auto justify-between align-center items-center gap-20 h-[95vh] px-5">
+        <div class="flex flex-col max-w-sm gap-10">
+            <div class="flex">
+                <h1 class="text-7xl font-bold">
+                    <a href=""><span class="text-teal-500">
+                            Rocket<br>
+                        </span>Bank</a>
 
-        <!--Segunda parte-->
-        <div class=" flex justify-around items-center bg-sky-950 w-screen h-screen">
-            <div class="hidden md:block">
-                <div class="w-80 h-80 bg-slate-900 flex items-center justify-center rounded-full blur-2xl absolute">
-                    <!--Rounded-full-->
-                </div>
-                <img src="/static/assets/Four Tech Podium 1.svg" alt="Pódio azul" class="w-96 h-96 relative origin-center">
+                </h1>
             </div>
-            <div class="flex flex-col gap-20">
-                <h2 class="font-bold text-5xl"><span class="text-teal-500">Section</span> Text</h2>
-                <p class="w-96">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos tempore debitis nisi doloribus accusantium exercitationem blanditiis ipsum, id laborum aliquid nobis quidem architecto, error non? Consectetur deleniti doloribus placeat corrupti.
+            <div class="flex flex-col gap-4">
+                <h2 class="text-2xl font-semibold"><span class="text-teal-500">Turbine</span> Seu Dinheiro</h2>
+                <p class="max-w-96">Turbine seu dinheiro com o Rocket Bank, o banco que entende suas necessidades
+                    financeiras e trabalha para maximizar seu potencial de ganhos. Nós oferecemos uma variedade de
+                    produtos e serviços financeiros projetados para ajudá-lo a economizar mais, investir melhor e
+                    aumentar sua riqueza.
                 </p>
             </div>
+
+            <button class="w-56 bg-teal-500 p-2.5 rounded text-slate-950 font-medium">
+                Junte-se a nós
+            </button>
         </div>
-        
-        <!--Terceira parte-->
-        <div class="flex justify-around items-center w-screen h-screen">
-            <div class="flex flex-col gap-20">
-                <h2 class="font-bold text-5xl"><span class="text-teal-500">Section</span> Text</h2>
-                <p class="w-96">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, assumenda error? Dolorem ipsa quae labore eum veritatis in blanditiis illum accusamus nesciunt sed! A facilis ullam amet magnam harum repellat!</p>
+        <div class="hidden md:block relative">
+            <div class="w-80 h-80 rounded-full bg-blue-950 blur-2xl absolute "></div>
+            <img src="{{ url_for('static', filename='assets/Foguete.svg') }}" alt="Foguete" class="relative inset-0">
+
+        </div>
+
+    </section>
+
+    <!--Segunda parte-->
+    <section class="flex justify-around items-center bg-sky-950 w-screen h-screen px-5 gap-5">
+        <div class="hidden md:block relative">
+            <div class="bg-slate-900 flex items-center justify-center rounded-full blur-2xl absolute inset-0">
+                <!--Rounded-full-->
             </div>
-            <div class="relative w-80 h-80 overflow-visible hidden md:block">
-                <div class="absolute inset-0 bg-blue-950 rounded-full blur-2xl"></div>
-                <div class="absolute flex justify-center items-center h-full">
-                    <div class="flex flex-wrap">
-                        <img src="/static/assets/Chainlink 1.svg" alt="Chainlink 1" class="w-36 h-36">
-                        <img src="/static/assets/Synthetix 1.svg" alt="Synthetix 1" class="w-48 h-48">
-                    </div>
-                    <div class="flex flex-wrap">
-                        <img src="/static/assets/Ethereum 1.svg" alt="Ethereum 1" class="w-44 h-44">
-                        <img src="/static/assets/Lisk.svg" alt="Lisk" class="w-58 h-58">
-                    </div>
+            <img src="{{ url_for('static', filename='assets/Four Tech Podium 1.svg') }}" alt="Pódio azul"
+                class="max-w-96 h-96 relative origin-center">
+        </div>
+        <div class="flex flex-col gap-20">
+            <h2 class="font-bold text-5xl"><span class="text-teal-500">Alto</span> Rendimento</h2>
+            <p class="max-w-96">
+                Com contas de poupança de alto rendimento, opções de investimento personalizadas e uma plataforma de
+                negociação de ações de última geração, o Rocket Bank é o parceiro financeiro que você precisa para
+                acelerar seu crescimento financeiro.
+            </p>
+        </div>
+    </section>
+
+    <!--Terceira parte-->
+    <section class="flex justify-around items-center w-screen h-screen px-5 gap-5">
+        <div class="flex flex-col gap-20">
+            <h2 class="font-bold text-5xl"><span class="text-teal-500">Diversos</span> Serviços</h2>
+            <p class="max-w-96"> Sabemos que cada cliente é único e tem necessidades financeiras diferentes. É por isso
+                que oferecemos uma variedade de produtos e serviços, desde contas correntes e de poupança até
+                empréstimos e investimentos. Nossa equipe de especialistas está sempre pronta para ajudá-lo a escolher a
+                opção que melhor atende às suas necessidades.
+            </p>
+        </div>
+        <div class="hidden md:block relative">
+            <div class="absolute inset-0 bg-blue-950 rounded-full blur-2xl"></div>
+            <div class="flex justify-center items-center h-full">
+                <div class="">
+                    <img src="{{ url_for('static', filename='assets/Chainlink 1.svg') }}" alt="Chainlink 1"
+                        class="w-36 h-36 relative origin-center">
+                    <img src="{{ url_for('static', filename='assets/Synthetix 1.svg') }}" alt="Synthetix 1"
+                        class="w-48 h-48 relative origin-center">
+                </div>
+                <div class="">
+                    <img src="{{ url_for('static', filename='assets/Ethereum 1.svg') }}" alt="Ethereum 1"
+                        class="w-44 h-44 relative origin-center">
+                    <img src="{{ url_for('static', filename='assets/Lisk.svg') }}" alt="Lisk"
+                        class="w-58 h-58 relative origin-center">
                 </div>
             </div>
         </div>
-    </main>
+    </section>
+</main>
 {% endblock %}

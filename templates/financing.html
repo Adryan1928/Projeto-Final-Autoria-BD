@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<section class="flex h-[66vh] relative text-gray-200">
+<section class="flex md:h-[66vh] h-full relative text-gray-200">
     <img src="{{ url_for('static', filename='img/living-room.png') }}" alt="Uma sala de estar"
         class="absolute h-full w-full object-cover">
 
 
-    <div class="flex z-10 container w-full m-auto justify-between align-center items-center gap-20">
+    <div class="flex flex-col md:flex-row z-10 container w-full m-auto justify-between align-center items-center gap-20 px-4 py-4">
         <div class="flex flex-col max-w-sm gap-10">
             <h2 class="title text-gray-100">Construa seu futuro</h2>
             <p>
@@ -35,11 +35,11 @@
 </section>
 
 <section class="flex text-gray-200">
-    <div class="container m-auto my-20">
+    <div class="container m-auto my-20 px-4">
 
         <h2 class="title mb-14 max-w-2xl text-gray-100">Conheça as vantagens do financiamento no Rocket Bank</h2>
 
-        <div class="flex flex-row gap-10">
+        <div class="flex flex-col md:flex-row gap-10">
             <div class="flex flex-col gap-12">
                 <div class="flex flex-row gap-8 items-center">
                     <i class="fa fa-line-chart fa-2x"></i>
