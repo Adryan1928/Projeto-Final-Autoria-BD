@@ -1,9 +1,12 @@
+import os
 import psycopg2
 import psycopg2.extras
-conn = psycopg2.connect(database="rocket_bank",
-                        user="postgres",
-                        password="root",
-                        host="localhost")
+
+conn = psycopg2.connect(database=os.getenv('DATABASE_NAME'),
+                        user=os.getenv('DATABASE_USER'),
+                        password=os.getenv('DATABASE_PASSWORD'),
+                        host=os.getenv("DATABASE_HOST"))
+
 
 from models.utils import transaction
 

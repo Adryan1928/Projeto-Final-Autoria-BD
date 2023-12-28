@@ -12,9 +12,9 @@ def login():
 
         
         user = User.get_user_by_email(email=email)
-        user = User(user)
         
         if user:
+            user = User(user)
             if password == user.password:
                 return redirect(url_for('payments.show_payments', id=user.id))
             

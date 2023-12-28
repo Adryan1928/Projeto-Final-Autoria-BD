@@ -1,4 +1,5 @@
 from functools import wraps
+import os
 import psycopg2
 import psycopg2.extras
 
@@ -6,12 +7,11 @@ import psycopg2.extras
 def transaction(function):
     @wraps(function)
     def wrapper(*args, **kwargs):
-        conn = psycopg2.connect(
-            database="rocket_bank",
-            user="postgres",
-            password="root",
-            host="localhost"
-        )
+        conn = psycopg2.connect(database=os.getenv('DATABASE_NAME'),
+                                user=os.getenv('DATABASE_USER'),
+                                password=os.getenv('DATABASE_PASSWORD'),
+                                host=os.getenv("DATABASE_HOST"))
+
         cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
         
         try:
