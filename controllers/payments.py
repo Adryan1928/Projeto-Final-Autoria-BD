@@ -4,14 +4,14 @@ import models.favorites as favorites
 
 from models.users import User
 
-import utils
+import models.payments_model as payments_model
 
 payments = Blueprint('payments', __name__, static_folder='static', template_folder='templates')
 
 @payments.route('/<int:id>/', methods=['GET', 'POST'])
 def show_payments(id):
     if request.method == 'GET':
-        payments_context = utils.getPayments(id)
+        payments_context = payments_model.getPayments(id)
         user = User.get_user_by_id(id)
         user_favorites = favorites.getFavorites(id=id)
         return render_template('pagamentos.html', favorites=user_favorites, user = user, post = id, payments=payments_context)

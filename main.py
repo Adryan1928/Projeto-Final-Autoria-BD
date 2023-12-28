@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, redirect, url_for
 
 from controllers.users import auth
 from controllers.payments import payments
-import utils
+import models.payments_model as payments_model
 from models.users import User
 from models import favorites
 
@@ -22,7 +22,7 @@ def index():
 
 @app.route('/extrato/<int:id>/', methods=['GET', 'POST'])
 def extrato(id):
-    payments = utils.getPayments(id)
+    payments = payments_model.getPayments(id)
     if request.method == 'POST':
         text = request.form.get('filtro')
         if len(text.strip()) == 0:
@@ -68,7 +68,7 @@ def pix(id):
 
         pix = favorites.get_pix_by_key(key=dados_dict['chave'])
 
-        utils.setPayment(id, pix['person_id'], dados_dict['valor'])
+        payments_model.setPayment(id, pix['person_id'], dados_dict['valor'])
 
         return redirect(url_for('payments.show_payments', id=id))
     
